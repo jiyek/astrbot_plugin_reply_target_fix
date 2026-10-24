@@ -1,0 +1,43 @@
+{
+    "enabled": {
+        "description": "启用引用目标修正",
+        "type": "bool",
+        "default": true,
+        "hint": "开启后会根据语义替换 AstrBot 自动添加的 @ 和引用消息目标。"
+    },
+    "target_mode": {
+        "description": "判断模式",
+        "type": "string",
+        "options": [
+            "semantic",
+            "quoted",
+            "current"
+        ],
+        "default": "semantic",
+        "hint": "semantic：用当前聊天模型判断回复对象，更准但会多一次轻量 LLM 调用；quoted：只要带引用就引用原消息；current：不修改，保持 AstrBot 默认。"
+    },
+    "require_bot_addressed": {
+        "description": "仅处理 @bot 的消息",
+        "type": "bool",
+        "default": false,
+        "hint": "开启后，只有被 @ 或在私聊中才做语义判断。关闭时，群里带引用的回复也会判断。"
+    },
+    "fix_private": {
+        "description": "私聊也修正",
+        "type": "bool",
+        "default": false,
+        "hint": "私聊通常不需要 @；开启后仍会按语义把引用的消息作为回复目标。"
+    },
+    "skip_self_quote": {
+        "description": "引用 bot 自己时不修正",
+        "type": "bool",
+        "default": true,
+        "hint": "用户引用 bot 自己的消息并继续提问时，保持回复当前用户，避免 @ bot 自己。"
+    },
+    "semantic_timeout": {
+        "description": "语义判断超时（秒）",
+        "type": "int",
+        "default": 12,
+        "hint": "semantic 模式最多等待多久；超时后自动退回本地启发式判断。"
+    }
+}

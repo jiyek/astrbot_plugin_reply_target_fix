@@ -1,0 +1,8 @@
+name: astrbot_plugin_reply_target_fix
+display_name: 引用目标修正
+desc: 按语义修正 AstrBot 回复的 @ 和引用目标：回复当前提问者还是被引用的原消息。
+version: v1.1.0
+author: Luna
+astrbot_version: ">=4.17.0"
+support_platforms:
+  - aiocqhttp
